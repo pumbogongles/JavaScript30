@@ -68,8 +68,9 @@
       if (!audio) return;
       audio.currentTime = 0; //rewind to the start
       audio.play();
-
+      console.log(key.classList)
       key.classList.add('playing');
+      console.log(key.classList)
     }
 
     function removeTransition(e) {
@@ -79,6 +80,22 @@
 
     window.addEventListener('keydown', playSound)
     window.addEventListener('keyup', removeTransition)
+
+/*
+Step 1  - Line 81, get the window to listen to event 'keydown' to perform function playSound()
+Step 2  - Line 64, create function playSound() that takes in argument (e)
+    2.1 - Line 65, create const audio which will select audio[data-key] as defined in Line 53~61
+    2.2 - Line 69, set delay with .currentTime to 0
+    2.3 - Line 70, set const audio to play()
+    2.4 - Line 66, create const key to select the .class(.key[data-key]) defined in Line 15~47
+    2.5 - Line 72, add 'playing' into the classList of const key
+    2.X - .playing has been defined in style.css on line 35~39
+Step 3  - Line 82, get the window to listen to event 'keyup' to perform function removeTransition()
+    3.1 - Line 76, create function removeTransition() that takes in argument (e)
+    3.2 - Line 77, create const key to select the .class(.key[data-key]) defined in Line 15~47
+    3.3 - Line 78, remove 'playing' from classList of const key
+*/
+
     // https://www.youtube.com/watch?v=VuN8qwZoego
     // function removeTransition(e) {
     //   if(e.propertyName !== 'transform') return; // skip it if it's not a transform
